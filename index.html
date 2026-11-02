@@ -274,6 +274,96 @@ nav.top{position:absolute;inset:0 0 auto;z-index:20;display:flex;align-items:cen
   .post.big h3{font-size:2rem}
 }
 
+/* ---------- FILM (scroll-scaled video) ---------- */
+.film{position:relative;height:220vh}
+.film .sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.film .frame{position:relative;width:62vw;height:62vh;border-radius:32px;overflow:hidden;will-change:transform,width,height,border-radius;box-shadow:0 60px 120px -60px rgba(0,0,0,.6)}
+.film video,.film .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film video{filter:grayscale(1) sepia(.38) brightness(.82) contrast(1.08)}
+.film .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.film .quote{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 6vw;pointer-events:none}
+.film .quote .a{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.6rem);line-height:1}
+.film .quote .a i{font-style:italic}
+.film .quote .b{font-family:var(--serif);font-size:clamp(4rem,13vw,13rem);line-height:.82;letter-spacing:-.02em;text-transform:uppercase}
+.film .quote .c{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.6rem);align-self:flex-end;margin-right:12vw}
+.film .tagline{position:absolute;left:0;right:0;bottom:6vh;text-align:center;color:rgba(255,255,255,.75);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase}
+
+/* ---------- GALLERY (velocity skew) ---------- */
+.gallery{padding:10vh 0 14vh;overflow:hidden}
+.g-track{display:flex;gap:18px;width:max-content;will-change:transform}
+.g-item{position:relative;flex:none;width:clamp(220px,22vw,340px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;will-change:transform}
+.g-item:nth-child(even){margin-top:8vh}
+.g-item img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.g-item figcaption{position:absolute;left:16px;bottom:14px;color:#fff;font-family:var(--serif);font-style:italic;font-size:1.6rem;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+
+/* ---------- RESULTS (before/after) ---------- */
+.results{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
+.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;perspective:1400px}
+.rcard{background:var(--paper);border-radius:26px;padding:16px;transform-style:preserve-3d;will-change:transform;transition:box-shadow .4s}
+.rcard:hover{box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+.ba{position:relative;aspect-ratio:4/3.3;border-radius:16px;overflow:hidden;--p:50%;user-select:none;touch-action:pan-y;background:#ddd}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;pointer-events:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);box-shadow:0 0 12px rgba(0,0,0,.3)}
+.ba .knob{position:absolute;top:50%;left:var(--p);width:46px;height:46px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:.8rem;color:var(--ink)}
+.ba .lbl{position:absolute;top:12px;font-size:.7rem;font-weight:600;letter-spacing:.1em;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);padding:5px 9px;border-radius:6px}
+.ba .lbl.l{left:12px}.ba .lbl.r{right:12px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.rcard .info{padding:20px 10px 8px;display:grid;gap:12px;transform:translateZ(30px)}
+.rcard .info small{color:var(--lilac-ink);font-weight:500;font-size:.75rem}
+.rcard h3{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1}
+.rcard .chips{display:flex;flex-wrap:wrap;gap:6px}
+.rcard .chips span{font-size:.74rem;padding:.35rem .7rem;border:1px solid var(--line);border-radius:999px;background:#fff}
+.consent{font-size:.74rem;color:var(--soft);margin-top:18px;max-width:720px}
+
+/* ---------- APPOINTMENT SAYS (flip cards) ---------- */
+.says{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
+.s-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 24px;scrollbar-width:none}
+.s-row::-webkit-scrollbar{display:none}
+.flip{flex:none;width:clamp(240px,24vw,320px);height:380px;perspective:1200px;scroll-snap-align:start;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.flip:hover .in,.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .bk{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.flip .f{background:var(--ink);color:#fff;overflow:hidden}
+.flip .f::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 35%,rgba(0,0,0,.65)),var(--img) center/cover}
+.flip .f>*{position:relative}
+.flip .f span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.flip .f h3{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1.02}
+.flip .bk{background:var(--lilac);color:#1d1640;transform:rotateY(180deg)}
+.flip .bk p{font-family:var(--serif);font-size:1.55rem;line-height:1.15}
+.flip .bk small{font-size:.75rem;color:var(--lilac-ink)}
+.hint{font-size:.75rem;color:var(--soft)}
+
+/* ---------- BEYOND THE FACE ---------- */
+.beyond{margin:0 14px 14vh;border-radius:26px;background:#1f3d38;color:#eef3f1;position:relative;overflow:hidden;min-height:90vh;display:grid;place-items:center;text-align:center;padding:14vh 6vw}
+.beyond h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,5.6rem);line-height:.95;max-width:900px;margin:0 auto}
+.beyond h2 i{font-style:italic}
+.beyond .list{margin:2.4rem 0 1.4rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.beyond .list span{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);padding:.6rem 1rem;border-radius:999px}
+.beyond p{max-width:520px;margin:0 auto;color:#b9ccc6}
+.beyond .fl{position:absolute;border-radius:20px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);will-change:transform}
+.beyond .fl img{width:100%;height:100%;object-fit:cover}
+.beyond .f1{width:13vw;aspect-ratio:3/4;left:3vw;top:10vh}
+.beyond .f2{width:10vw;aspect-ratio:3/4;right:3vw;top:12vh}
+.beyond .f3{width:12vw;aspect-ratio:4/3;left:8vw;bottom:8vh}
+.beyond .in{position:relative;z-index:2;max-width:min(760px,62vw)}
+
+/* CTA video background */
+.cta .bgimg video{position:absolute;inset:0;width:100%;height:120%;object-fit:cover;will-change:transform}
+
+@media (max-width:980px){
+  .r-grid{grid-template-columns:1fr}
+  .beyond .fl{display:none}
+}
+@media (max-width:700px){
+  .film{height:auto}
+  .film .sticky{position:relative;height:auto;padding:6vh 10px}
+  .film .frame{width:100%;height:70vh;border-radius:24px}
+  .film .quote .c{margin-right:4vw}
+  .beyond{margin:0 10px 12vh;min-height:0}
+  .g-item:nth-child(even){margin-top:4vh}
+}
+
 /* ---------- CTA ---------- */
 .cta{margin:0 14px;border-radius:26px;background:var(--ink);color:#fff;position:relative;overflow:hidden;min-height:90vh;display:grid;place-items:center;text-align:center;padding:12vh 6vw}
 .cta .bgimg{position:absolute;inset:0;opacity:.35}
@@ -363,7 +453,7 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
     <nav class="top" id="nav">
       <a href="#" class="brand"><span class="mark"></span><span><b>Dr. Preksha's</b><small>Aesthetics &amp; Wellness</small></span></a>
       <div class="links">
-        <a href="#treatments">Treatments</a><a href="#about">The Clinic</a><a href="#season">Wedding Season</a><a href="#journal">Journal</a><a href="#faq">FAQ</a><a href="#visit">Contact</a>
+        <a href="#treatments">Treatments</a><a href="#results">Results</a><a href="#about">The Clinic</a><a href="#season">Wedding Season</a><a href="#journal">Journal</a><a href="#faq">FAQ</a><a href="#visit">Contact</a>
       </div>
       <div class="nav-cta">
         <a href="tel:+917717567426" class="btn btn-out">77175 67426</a>
@@ -414,6 +504,23 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
   <div class="sig"><img src="images/indian.jpg" alt=""><span>The philosophy at Dr. Preksha's Aesthetics &amp; Wellness</span></div>
 </section>
 
+<!-- ================= FILM ================= -->
+<section class="film" id="film">
+  <div class="sticky">
+    <div class="frame" id="filmFrame">
+      <img class="poster" src="images/dropper.jpg" alt="">
+      <video autoplay muted loop playsinline preload="metadata" poster="images/dropper.jpg"><source src="video/drop.mp4" type="video/mp4"></video>
+      <div class="shade"></div>
+      <div class="quote">
+        <span class="a">Perfect skin is <i>a myth.</i></span>
+        <span class="b">Healthy<br>skin</span>
+        <span class="c">is the goal.</span>
+      </div>
+      <div class="tagline">Dr. Preksha's · Ahmedabad</div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TREATMENTS ================= -->
 <section class="treat" id="treatments">
   <div class="treat-head">
@@ -439,6 +546,20 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
       </ul>
       <a href="#visit" class="btn btn-lilac" style="align-self:flex-start">Ask what suits you <span class="arr">→</span></a>
     </article>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" aria-hidden="true">
+  <div class="g-track" id="gTrack">
+    <figure class="g-item"><img src="images/glow.jpg" alt="" loading="lazy"><figcaption>hydration</figcaption></figure>
+    <figure class="g-item"><img src="images/facial.jpg" alt="" loading="lazy"><figcaption>precision</figcaption></figure>
+    <figure class="g-item"><img src="images/veil.jpg" alt="" loading="lazy"><figcaption>softness</figcaption></figure>
+    <figure class="g-item"><img src="images/dropper.jpg" alt="" loading="lazy"><figcaption>science</figcaption></figure>
+    <figure class="g-item"><img src="images/indian.jpg" alt="" loading="lazy"><figcaption>confidence</figcaption></figure>
+    <figure class="g-item"><img src="images/glow.jpg" alt="" loading="lazy"><figcaption>radiance</figcaption></figure>
+    <figure class="g-item"><img src="images/veil.jpg" alt="" loading="lazy"><figcaption>calm</figcaption></figure>
+    <figure class="g-item"><img src="images/facial.jpg" alt="" loading="lazy"><figcaption>care</figcaption></figure>
   </div>
 </section>
 
@@ -469,6 +590,41 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
     <div class="sc"><div class="txt"><span class="n">02</span><div><h3>Skin consultation</h3><p>Dr. Preksha looks at your skin type, history and what's bothering you — before anything is suggested.</p></div></div><div class="ph"><img src="images/smile.jpg" alt="" loading="lazy"></div></div>
     <div class="sc"><div class="txt"><span class="n">03</span><div><h3>A plan, not a package</h3><p>A course of treatment built for your concern, with honest timelines for when you'll see change.</p></div></div><div class="ph"><img src="images/flower.jpg" alt="" loading="lazy"></div></div>
     <div class="sc"><div class="txt"><span class="n">04</span><div><h3>Follow-ups that matter</h3><p>Aftercare guidance between sessions, so results keep building long after you leave.</p></div></div><div class="ph"><img src="images/towel.jpg" alt="" loading="lazy"></div></div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="results" id="results">
+  <div class="sec-hd">
+    <h2>Real patients, <span class="serif it">real results</span></h2>
+    <p>Drag the slider to compare. Results from Dr. Preksha's own patients — no filters, no retouching.</p>
+  </div>
+  <div class="r-grid">
+    <article class="rcard tilt">
+      <div class="ba"><img src="images/mn-after.jpg" alt="After microneedling combination treatment"><img class="before" src="images/mn-before.jpg" alt="Before microneedling combination treatment"><span class="lbl l">BEFORE</span><span class="lbl r">AFTER</span><span class="line"></span><span class="knob">⟷</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after"></div>
+      <div class="info"><small>Combination treatment</small><h3>Microneedling journey</h3><div class="chips"><span>Smoother texture</span><span>Pores &amp; scars</span><span>More even tone</span><span>Collagen boost</span><span>Natural glow</span></div></div>
+    </article>
+    <article class="rcard tilt">
+      <div class="ba"><img src="images/mb-after.jpg" alt="After microblading permanent eyebrows"><img class="before" src="images/mb-before.jpg" alt="Before microblading permanent eyebrows"><span class="lbl l">BEFORE</span><span class="lbl r">AFTER</span><span class="line"></span><span class="knob">⟷</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after"></div>
+      <div class="info"><small>Permanent makeup</small><h3>Microblading brows</h3><div class="chips"><span>Natural-looking</span><span>Long-lasting, with touch-ups</span><span>Precise shaping</span><span>Saves time every morning</span></div></div>
+    </article>
+  </div>
+  <p class="consent">Shared with patients' consent; eyes blurred for privacy. Photos taken at different visits under different lighting. Individual results vary and depend on skin type, the number of sessions and aftercare.</p>
+</section>
+
+<!-- ================= APPOINTMENT SAYS ================= -->
+<section class="says">
+  <div class="sec-hd">
+    <h2>What your next appointment <span class="serif it">says about you</span></h2>
+    <p class="hint">Hover or tap a card to find out →</p>
+  </div>
+  <div class="s-row">
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/indian.jpg)"><span>Booked</span><h3>HydraFacial</h3></div><div class="bk"><p>There's a wedding, a party or a photo you care about coming up — and you planned ahead.</p><small>Instant glow, zero downtime.</small></div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/posing.jpg)"><span>Booked</span><h3>Laser hair reduction, session 5</h3></div><div class="bk"><p>You haven't booked a waxing appointment in months — and you don't miss it.</p><small>Smooth skin, fewer ingrown hairs.</small></div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/neck.jpg)"><span>Booked</span><h3>PRP / GFC</h3></div><div class="bk"><p>You're playing the long game — and your hairbrush is starting to thank you.</p><small>Results build over sessions.</small></div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/lotion.jpg)"><span>Booked</span><h3>Pigmentation consult</h3></div><div class="bk"><p>Sunscreen is now non-negotiable. You reapply. You've become that friend.</p><small>Consistency is the secret.</small></div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/glow.jpg)"><span>Booked</span><h3>Microneedling</h3></div><div class="bk"><p>You know good skin is built, not bought overnight. Patience is your power.</p><small>Collagen takes weeks — worth it.</small></div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f" style="--img:url(images/smile.jpg)"><span>Booked</span><h3>Permanent brows</h3></div><div class="bk"><p>You've just bought yourself ten extra minutes every single morning.</p><small>Wake up done.</small></div></div></div>
   </div>
 </section>
 
@@ -515,6 +671,18 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
     <li><b>4–6 weeks</b><span><strong>Refine</strong>Hydration-led treatments and glow facials. No brand-new actives from here on.</span></li>
     <li><b>Final 2 weeks</b><span><strong>Keep it calm</strong>Only gentle, familiar treatments — a HydraFacial-type session about a week before. Don't forget neck, back and hands; HD cameras see everything.</span></li>
   </ol>
+</section>
+
+<!-- ================= BEYOND THE FACE ================= -->
+<section class="beyond" id="beyond">
+  <figure class="fl f1" data-depth="0.6"><img src="images/glow.jpg" alt="" loading="lazy"></figure>
+  <figure class="fl f2" data-depth="1.1"><img src="images/veil.jpg" alt="" loading="lazy"></figure>
+  <figure class="fl f3" data-depth="0.85"><img src="images/facial.jpg" alt="" loading="lazy"></figure>
+  <div class="in">
+    <h2>Your neck, hands and chest <i>age just as visibly.</i></h2>
+    <div class="list"><span>Microneedling</span><span>Laser treatments</span><span>Skin rejuvenation</span><span>Pigmentation care</span></div>
+    <p>When needed, we treat these areas in clinic too — the same thoughtful strategy as the face, adjusted for thinner, more delicate skin.</p>
+  </div>
 </section>
 
 <!-- ================= JOURNAL ================= -->
@@ -594,7 +762,7 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
 
 <!-- ================= CTA ================= -->
 <section class="cta">
-  <div class="bgimg"><img data-par="-15" src="images/hero.jpg" alt="" loading="lazy"></div>
+  <div class="bgimg"><video id="ctaVid" data-par="-15" autoplay muted loop playsinline preload="metadata" poster="images/facial.jpg"><source src="video/laser.mp4" type="video/mp4"></video></div>
   <div class="in">
     <h2>Your skin,<br><span class="serif it">taken seriously.</span></h2>
     <p>Book a consultation and ask about this season's offers — slots are limited.</p>
@@ -774,8 +942,72 @@ if (!window.gsap || reduce) {
   gsap.from('.season', { scale: .94, borderRadius: 60, ease: 'none', scrollTrigger: { trigger: '.season', start: 'top bottom', end: 'top 30%', scrub: true } });
   gsap.from('.cta h2', { scale: .85, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top 85%', end: 'top 25%', scrub: true } });
 
+  mm.add('(min-width: 701px)', () => {
+    // Film: small rounded card grows to full-bleed while pinned
+    gsap.timeline({ scrollTrigger: { trigger: '.film', start: 'top top', end: 'bottom bottom', scrub: true } })
+      .to('#filmFrame', { width: '100vw', height: '100vh', borderRadius: 0, ease: 'none' }, 0)
+      .from('.film .quote', { scale: .8, opacity: .4, ease: 'none' }, 0);
+
+    // Gallery drifts sideways with the scroll and skews with scroll speed
+    const gTrack = document.getElementById('gTrack');
+    gsap.fromTo(gTrack, { x: () => innerWidth * .1 }, { x: () => -(gTrack.scrollWidth - innerWidth * .9), ease: 'none',
+      scrollTrigger: { trigger: '.gallery', start: 'top bottom', end: 'bottom top', scrub: 1, invalidateOnRefresh: true,
+        onUpdate: self => gsap.to('.g-item', { skewX: gsap.utils.clamp(-8, 8, self.getVelocity() / -300), duration: .4, overwrite: 'auto' }) } });
+    gsap.utils.toArray('.g-item img').forEach(img => gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.gallery', start: 'top bottom', end: 'bottom top', scrub: true } }));
+
+    // Beyond-the-face: floating images at different depths
+    gsap.utils.toArray('.beyond .fl').forEach(f => gsap.fromTo(f, { y: 120 * +f.dataset.depth, rotation: -4 * +f.dataset.depth }, { y: -160 * +f.dataset.depth, rotation: 4 * +f.dataset.depth, ease: 'none',
+      scrollTrigger: { trigger: '.beyond', start: 'top bottom', end: 'bottom top', scrub: true } }));
+
+    // Result cards rise in with depth
+    gsap.from('.rcard', { y: 120, rotationX: 22, transformPerspective: 1400, opacity: 0, stagger: .15, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.r-grid', start: 'top 85%' } });
+    gsap.from('.flip', { y: 80, rotationY: -25, opacity: 0, stagger: .08, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.s-row', start: 'top 88%' } });
+  });
+
+  // Before/after: one gentle sweep when it first comes into view
+  document.querySelectorAll('.ba').forEach(ba => {
+    const st = { p: 50 };
+    gsap.timeline({ scrollTrigger: { trigger: ba, start: 'top 70%', once: true } })
+      .to(st, { p: 78, duration: .9, ease: 'power2.inOut', onUpdate: () => setBA(ba, st.p) })
+      .to(st, { p: 22, duration: 1.2, ease: 'power2.inOut', onUpdate: () => setBA(ba, st.p) })
+      .to(st, { p: 50, duration: .9, ease: 'power2.inOut', onUpdate: () => setBA(ba, st.p) });
+  });
+
+  // 3D tilt on result cards (pointer devices)
+  if (matchMedia('(pointer:fine)').matches) {
+    document.querySelectorAll('.tilt').forEach(card => {
+      const rx = gsap.quickTo(card, 'rotationX', { duration: .6, ease: 'power3' });
+      const ry = gsap.quickTo(card, 'rotationY', { duration: .6, ease: 'power3' });
+      gsap.set(card, { transformPerspective: 1200 });
+      card.addEventListener('pointermove', e => {
+        if (e.target.closest('.ba')) { rx(0); ry(0); return; }
+        const r = card.getBoundingClientRect();
+        ry(((e.clientX - r.left) / r.width - .5) * 10);
+        rx(-((e.clientY - r.top) / r.height - .5) * 8);
+      });
+      card.addEventListener('pointerleave', () => { rx(0); ry(0); });
+    });
+  }
+
   addEventListener('load', () => ScrollTrigger.refresh());
 }
+
+// Before/after slider (works with or without animation libraries)
+function setBA(ba, p) { ba.style.setProperty('--p', p + '%'); const i = ba.querySelector('input'); if (i) i.value = p; }
+document.querySelectorAll('.ba input').forEach(inp => inp.addEventListener('input', () => setBA(inp.closest('.ba'), inp.value)));
+
+// Flip cards: tap/Enter to flip on touch and keyboard
+document.querySelectorAll('.flip').forEach(c => {
+  c.addEventListener('click', () => c.classList.toggle('on'));
+  c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.classList.toggle('on'); } });
+});
+
+// Play background videos only while visible (saves data and battery)
+const vio = new IntersectionObserver(es => es.forEach(e => {
+  const v = e.target;
+  if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
+}), { threshold: 0 });
+document.querySelectorAll('.film video, #ctaVid').forEach(v => vio.observe(v));
 </script>
 </body>
 </html>
