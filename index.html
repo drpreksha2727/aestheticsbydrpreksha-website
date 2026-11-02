@@ -224,6 +224,21 @@ nav.top{position:absolute;inset:0 0 auto;z-index:20;display:flex;align-items:cen
 .post.big h3{font-size:2.4rem}
 .j-side{display:grid;gap:14px;grid-column:span 2;grid-template-columns:1fr 1fr}
 
+/* ---------- SEARCHED ---------- */
+.searched{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qcard{display:flex;flex-direction:column;gap:16px;background:var(--paper);border-radius:22px;padding:22px;text-decoration:none;transition:transform .3s,box-shadow .3s}
+.qcard:hover{transform:translateY(-5px);box-shadow:0 24px 50px -30px rgba(0,0,0,.35)}
+.qcard .bar{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 16px;font-size:.9rem;color:#2a2826;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.qcard .bar svg{flex:none;color:#8d8a86}
+.qcard .cur{display:inline-block;width:1.5px;height:1em;background:var(--ink);margin-left:-6px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.qcard .ans{font-size:.92rem;color:var(--soft);line-height:1.45}
+.qcard .ans b{display:inline-block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;padding:3px 7px;border-radius:5px;margin-right:6px;vertical-align:2px}
+.qcard.hot .bar{border-color:#cdbff3}
+@media (max-width:1100px){.q-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.q-grid{grid-template-columns:1fr}}
+
 /* ---------- MYTHS ---------- */
 .myths{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
 .m-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -534,6 +549,23 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
   </div>
 </section>
 
+<!-- ================= SEARCHED ================= -->
+<section class="searched" id="searched">
+  <div class="sec-hd">
+    <h2>What people are <span class="serif it">asking Google</span></h2>
+    <p>The skin questions India — from Ahmedabad and Surat to Rajkot and Jamnagar — is searching most right now. Tap one for a straight answer.</p>
+  </div>
+  <div class="q-grid">
+    <a class="qcard" href="journal.html#laser-faq"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>is laser hair removal permanent<span class="cur"></span></span><span class="ans">Permanent <em>reduction</em> — what that means, plus safety, pain &amp; cost-worthiness →</span></a>
+    <a class="qcard" href="journal.html#remove-pigmentation"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>how to remove pigmentation from face permanently</span><span class="ans">Which types fade for good, which need control — and the cream trap →</span></a>
+    <a class="qcard hot" href="journal.html#glutathione"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>glutathione injection</span><span class="ans"><b>Trending</b> The glow-drip craze, the evidence and the risks →</span></a>
+    <a class="qcard hot" href="journal.html#exosomes"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>exosomes hair treatment</span><span class="ans"><b>Trending</b> The newest buzzword in skin &amp; hair, explained simply →</span></a>
+    <a class="qcard" href="journal.html#cream-or-clinic"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>acne scar cream · open pores · dark circles</span><span class="ans">What creams can fix — and when it's time for a clinic →</span></a>
+    <a class="qcard" href="journal.html#confusing-terms"><span class="bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>botox hair treatment</span><span class="ans">Spoiler: it isn't Botox. Plus "skin booster" &amp; "glass skin" decoded →</span></a>
+  </div>
+  <p class="note-sm">Based on Google search suggestions in India, November 2026.</p>
+</section>
+
 <!-- ================= MYTHS ================= -->
 <section class="myths">
   <div class="sec-hd">
@@ -735,8 +767,8 @@ if (!window.gsap || reduce) {
     gsap.from(el, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
   // Cards rise in from depth
-  gsap.utils.toArray('.tr-grid, .j-grid, .m-row').forEach(grid => {
-    gsap.from(grid.querySelectorAll('.tr, .post, .myth'), { y: 90, rotationX: 18, transformPerspective: 1200, opacity: 0, stagger: .1, duration: 1.1, ease: 'power3.out',
+  gsap.utils.toArray('.tr-grid, .j-grid, .m-row, .q-grid').forEach(grid => {
+    gsap.from(grid.querySelectorAll('.tr, .post, .myth, .qcard'), { y: 90, rotationX: 18, transformPerspective: 1200, opacity: 0, stagger: .1, duration: 1.1, ease: 'power3.out',
       scrollTrigger: { trigger: grid, start: 'top 85%' } });
   });
   gsap.from('.season', { scale: .94, borderRadius: 60, ease: 'none', scrollTrigger: { trigger: '.season', start: 'top bottom', end: 'top 30%', scrub: true } });
