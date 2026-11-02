@@ -176,6 +176,89 @@ nav.top{position:absolute;inset:0 0 auto;z-index:20;display:flex;align-items:cen
 .rv footer b{color:var(--ink);font-weight:500}
 .rv .st{color:#e7a41a;letter-spacing:2px}
 
+/* ---------- TRENDS ---------- */
+.trends{padding:4vh 6vw 14vh;max-width:1500px;margin:0 auto}
+.sec-hd{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:6vh}
+.sec-hd h2{font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:500;letter-spacing:-.05em;line-height:1}
+.sec-hd p{max-width:380px;color:var(--soft);font-size:.92rem}
+.tr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tr{background:var(--paper);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:14px;min-height:300px}
+.tr .no{font-family:var(--serif);font-size:3.2rem;line-height:.8;color:#b9a6f0}
+.tr h3{font-size:1.25rem;font-weight:500;letter-spacing:-.03em;line-height:1.15}
+.tr p{font-size:.88rem;color:var(--soft);flex:1}
+.tr .src{font-size:.72rem;color:var(--soft);border-top:1px solid var(--line);padding-top:12px}
+.tr .src a{text-decoration:underline}
+.tr.dark{background:var(--ink);color:#fff}
+.tr.dark p,.tr.dark .src{color:#a6a39f}
+.tr.dark .src{border-color:#2c2c2c}
+
+/* ---------- SEASON ---------- */
+.season{margin:0 14px 14vh;border-radius:26px;background:var(--lilac);display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden}
+.season .l{padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.season .tag{display:inline-block;background:#fff;color:var(--lilac-ink);font-size:.75rem;font-weight:500;padding:6px 12px;border-radius:999px;width:max-content}
+.season h2{font-size:clamp(2.2rem,4.4vw,4rem);font-weight:500;letter-spacing:-.05em;line-height:.95;color:#1d1640}
+.season .l p{color:#4a3f78;max-width:420px}
+.season ol{list-style:none;padding:56px 48px;display:grid;gap:0;background:rgba(255,255,255,.55)}
+.season li{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid rgba(58,42,122,.15)}
+.season li:last-child{border:0}
+.season li b{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1;color:var(--lilac-ink)}
+.season li span{font-size:.92rem;color:#2c2550}
+.season li span strong{display:block;font-weight:500;margin-bottom:2px;color:#1d1640}
+
+/* ---------- JOURNAL ---------- */
+.journal{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
+.j-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px}
+.post{background:var(--paper);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s}
+.post:hover{transform:translateY(-6px)}
+.post .ph{aspect-ratio:4/3;overflow:hidden}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.post:hover .ph img{transform:scale(1.06)}
+.post .bd{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.post .meta{font-size:.72rem;color:var(--soft);display:flex;gap:10px}
+.post .meta b{font-weight:500;color:var(--lilac-ink)}
+.post h3{font-family:var(--serif);font-weight:400;font-size:1.8rem;line-height:1.05}
+.post p{font-size:.88rem;color:var(--soft);flex:1}
+.post .more{font-size:.85rem;font-weight:500}
+.post.big{grid-row:span 2}
+.post.big .ph{aspect-ratio:auto;flex:1;min-height:320px}
+.post.big h3{font-size:2.4rem}
+.j-side{display:grid;gap:14px;grid-column:span 2;grid-template-columns:1fr 1fr}
+
+/* ---------- MYTHS ---------- */
+.myths{padding:0 6vw 14vh;max-width:1500px;margin:0 auto}
+.m-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.myth{border-radius:22px;padding:28px;background:var(--paper);display:grid;gap:16px;align-content:start}
+.myth .q{font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.15;text-decoration:line-through;text-decoration-color:#d07a7a;text-decoration-thickness:1.5px;color:#8a8783}
+.myth .a{font-size:.95rem}
+.myth .a b{display:block;font-size:.72rem;letter-spacing:.08em;color:var(--lilac-ink);margin-bottom:6px;font-weight:600}
+
+/* ---------- FAQ ---------- */
+.faq{padding:0 6vw 14vh;max-width:1100px;margin:0 auto}
+.faq details{border-top:1px solid #d3d0ca;padding:22px 0}
+.faq details:last-of-type{border-bottom:1px solid #d3d0ca}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:500;letter-spacing:-.025em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid #cfccc6;display:grid;place-items:center;font-style:normal;transition:transform .3s,background .3s}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.faq details p{color:var(--soft);margin-top:12px;max-width:760px;font-size:.95rem}
+.note-sm{font-size:.75rem;color:var(--soft);margin-top:18px}
+@media (max-width:1100px){
+  .tr-grid{grid-template-columns:1fr 1fr}
+  .j-grid{grid-template-columns:1fr}
+  .post.big{grid-row:auto}
+  .j-side{grid-column:auto}
+  .m-row{grid-template-columns:1fr}
+  .season{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .tr-grid,.j-side{grid-template-columns:1fr}
+  .tr{min-height:0}
+  .season{margin:0 10px 12vh}
+  .season .l,.season ol{padding:32px 24px}
+  .season li{grid-template-columns:1fr;gap:6px}
+  .post.big h3{font-size:2rem}
+}
+
 /* ---------- CTA ---------- */
 .cta{margin:0 14px;border-radius:26px;background:var(--ink);color:#fff;position:relative;overflow:hidden;min-height:90vh;display:grid;place-items:center;text-align:center;padding:12vh 6vw}
 .cta .bgimg{position:absolute;inset:0;opacity:.35}
@@ -265,7 +348,7 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
     <nav class="top" id="nav">
       <a href="#" class="brand"><span class="mark"></span><span><b>Dr. Preksha's</b><small>Aesthetics &amp; Wellness</small></span></a>
       <div class="links">
-        <a href="#treatments">Treatments</a><a href="#about">The Clinic</a><a href="#process">Your Visit</a><a href="#reviews">Reviews</a><a href="#visit">Contact</a>
+        <a href="#treatments">Treatments</a><a href="#about">The Clinic</a><a href="#season">Wedding Season</a><a href="#journal">Journal</a><a href="#faq">FAQ</a><a href="#visit">Contact</a>
       </div>
       <div class="nav-cta">
         <a href="tel:+917717567426" class="btn btn-out">77175 67426</a>
@@ -387,6 +470,96 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
   </div>
 </section>
 
+<!-- ================= TRENDS ================= -->
+<section class="trends" id="trends">
+  <div class="sec-hd">
+    <h2>Where aesthetics <span class="serif it">is heading</span></h2>
+    <p>What's changing in skin and aesthetic care across India in 2026 — and how it shapes the way we work.</p>
+  </div>
+  <div class="tr-grid">
+    <article class="tr"><span class="no">01</span><h3>Skin health over quick fixes</h3><p>The conversation has moved from "instant results" to safety, patient selection and evidence. Fewer, better-planned sessions are winning over aggressive one-off treatments.</p><div class="src">Industry view, <a href="https://www.biospectrumindia.com/news/16/28470/photonence-announces-india-launch-of-korean-aesthetic-treatment-volformer.html" target="_blank" rel="noopener">BioSpectrum India</a></div></article>
+    <article class="tr dark"><span class="no">02</span><h3>Combination treatments</h3><p>Pairing technologies — for example a laser with a medical-grade topical, or tightening with hydration — is becoming standard, because skin concerns rarely have a single cause.</p><div class="src">Trend coverage, <a href="https://www.biospectrumasia.com/news/104/28339/koreas-classys-brings-advanced-aesthetics-and-dermatology-treatment-technology-to-india-in-collaboration-with-photonence.html" target="_blank" rel="noopener">BioSpectrum Asia</a></div></article>
+    <article class="tr"><span class="no">03</span><h3>Men are booking too</h3><p>Acne marks, pigmentation, beard-line issues and hair fall are bringing more men into aesthetic clinics — a group that was almost absent a few years ago.</p><div class="src">Market insight, <a href="https://www.kenresearch.com/industry-reports/india-medical-aesthetics-market.md" target="_blank" rel="noopener">Ken Research</a></div></article>
+    <article class="tr"><span class="no">04</span><h3>The wedding-season rush</h3><p>Clinics report demand climbing in the two months before weddings, led by HydraFacials, skin boosters and PRP — which is why planning early matters.</p><div class="src">Reporting, <a href="https://www.business-standard.com/industry/news/hydrafacials-to-botox-how-india-s-wedding-rush-is-powering-a-beauty-boom-125101200421_1.html" target="_blank" rel="noopener">Business Standard</a></div></article>
+  </div>
+</section>
+
+<!-- ================= SEASON ================= -->
+<section class="season" id="season">
+  <div class="l">
+    <div>
+      <span class="tag">November – February · Wedding &amp; winter season</span>
+      <h2 style="margin-top:1.4rem">Your glow plan, <span class="serif it">counted backwards</span></h2>
+    </div>
+    <p>Ahmedabad's winter air is dry and the wedding calendar is packed. The best results come from starting early and keeping the last weeks calm — here's the timeline we suggest for brides, grooms and the family.</p>
+    <a href="https://wa.me/917717567426?text=Hi%2C%20I%27d%20like%20a%20pre-wedding%20skin%20plan." target="_blank" rel="noopener" class="btn btn-ink" style="align-self:flex-start">Plan my wedding glow <span class="arr">→</span></a>
+  </div>
+  <ol>
+    <li><b>6 months</b><span><strong>Consult &amp; start the slow work</strong>Skin assessment. Begin pigmentation, acne-scar or laser hair reduction courses — these need multiple sessions spaced weeks apart.</span></li>
+    <li><b>3 months</b><span><strong>Build</strong>Peels, microneedling or PRP/GFC for hair, timed so any redness has fully settled well before the functions.</span></li>
+    <li><b>4–6 weeks</b><span><strong>Refine</strong>Hydration-led treatments and glow facials. No brand-new actives from here on.</span></li>
+    <li><b>Final 2 weeks</b><span><strong>Keep it calm</strong>Only gentle, familiar treatments — a HydraFacial-type session about a week before. Don't forget neck, back and hands; HD cameras see everything.</span></li>
+  </ol>
+</section>
+
+<!-- ================= JOURNAL ================= -->
+<section class="journal" id="journal">
+  <div class="sec-hd">
+    <h2>The skin <span class="serif it">journal</span></h2>
+    <p>Straight answers on the questions we hear most in clinic — written for Indian skin, backed by research.</p>
+  </div>
+  <div class="j-grid">
+    <a class="post big" href="journal.html#pigmentation">
+      <div class="ph"><img src="images/lotion.jpg" alt="" loading="lazy"></div>
+      <div class="bd"><div class="meta"><b>Pigmentation</b><span>6 min read</span></div><h3>Pigmentation in Indian skin: why gentle beats aggressive</h3><p>Melasma and dark spots behave differently on melanin-rich skin. What the research says about laser toning, session spacing and why sunscreen is non-negotiable.</p><span class="more">Read the article →</span></div>
+    </a>
+    <div class="j-side">
+      <a class="post" href="journal.html#prp-gfc">
+        <div class="ph"><img src="images/neck.jpg" alt="" loading="lazy"></div>
+        <div class="bd"><div class="meta"><b>Hair</b><span>5 min read</span></div><h3>PRP or GFC? What the studies actually show</h3><span class="more">Read →</span></div>
+      </a>
+      <a class="post" href="journal.html#bridal">
+        <div class="ph"><img src="images/indian.jpg" alt="" loading="lazy"></div>
+        <div class="bd"><div class="meta"><b>Weddings</b><span>5 min read</span></div><h3>The bridal skin timeline, explained</h3><span class="more">Read →</span></div>
+      </a>
+      <a class="post" href="journal.html#winter">
+        <div class="ph"><img src="images/towel.jpg" alt="" loading="lazy"></div>
+        <div class="bd"><div class="meta"><b>Seasonal</b><span>4 min read</span></div><h3>Why Ahmedabad winters leave your skin tight</h3><span class="more">Read →</span></div>
+      </a>
+      <a class="post" href="journal.html#laser-hair">
+        <div class="ph"><img src="images/posing.jpg" alt="" loading="lazy"></div>
+        <div class="bd"><div class="meta"><b>Laser</b><span>4 min read</span></div><h3>Laser hair reduction on Indian skin: 5 things to know</h3><span class="more">Read →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MYTHS ================= -->
+<section class="myths">
+  <div class="sec-hd">
+    <h2>Myth, <span class="serif it">meet fact</span></h2>
+  </div>
+  <div class="m-row">
+    <div class="myth"><span class="q">"Lasers aren't safe for Indian skin."</span><p class="a"><b>FACT</b>Many lasers are used safely on Indian skin every day. What matters is the right wavelength, conservative settings and correct spacing between sessions — decided by a doctor after examining your skin.</p></div>
+    <div class="myth"><span class="q">"You don't need sunscreen in winter or indoors."</span><p class="a"><b>FACT</b>UV reaches you in winter and through windows. For pigmentation-prone skin, daily broad-spectrum sunscreen is the single biggest factor in keeping results.</p></div>
+    <div class="myth"><span class="q">"One session should fix it."</span><p class="a"><b>FACT</b>Skin renews in cycles. Pigmentation, scars and hair fall usually improve over a course of sessions — and an honest plan tells you that up front.</p></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="sec-hd"><h2>Questions, <span class="serif it">answered</span></h2></div>
+  <details><summary>Do I need a consultation before any treatment?<i>+</i></summary><p>Yes. Every plan starts with a skin consultation so Dr. Preksha can check your skin type, history, medicines and goals. Some treatments aren't suitable for everyone, and the consultation is where we find that out.</p></details>
+  <details><summary>Is laser treatment safe for Indian skin?<i>+</i></summary><p>Lasers are widely used on Indian skin when the device, wavelength and settings are chosen for your skin type. Research on melasma in Indian patients, for example, favours low-energy settings and longer gaps between sessions to reduce the risk of rebound pigmentation. Your doctor will explain risks specific to you before starting.</p></details>
+  <details><summary>How many sessions will I need?<i>+</i></summary><p>It depends on the concern. Laser hair reduction, pigmentation and acne-scar treatments usually need several sessions spaced weeks apart; glow treatments like a HydraFacial can be one-off. You'll get an estimate after your consultation.</p></details>
+  <details><summary>Is there downtime?<i>+</i></summary><p>Many treatments have little or no downtime. Others — like some peels, microneedling or CO2 laser — can leave redness or flaking for a few days. We'll tell you what to expect so you can plan around events.</p></details>
+  <details><summary>Do you treat men?<i>+</i></summary><p>Yes. We see men for acne and acne marks, pigmentation, beard-line concerns, hair fall (PRP / GFC) and laser hair reduction.</p></details>
+  <details><summary>What does a treatment cost?<i>+</i></summary><p>Pricing depends on the treatment, the area and the number of sessions. We share a clear quote after your consultation — message us on WhatsApp at 77175 67426 to ask about current offers.</p></details>
+  <details><summary>Can I get treatments while pregnant or breastfeeding?<i>+</i></summary><p>Many aesthetic procedures and active ingredients are postponed during pregnancy and breastfeeding. Please tell us at your consultation so we can suggest only what's appropriate.</p></details>
+  <details><summary>How should I care for my skin after a session?<i>+</i></summary><p>Usually: gentle cleanser, a plain moisturiser, strict sun protection and no scrubs or strong actives for a few days. You'll get written aftercare specific to your treatment.</p></details>
+  <p class="note-sm">This information is general and educational. It isn't a substitute for a personal medical consultation.</p>
+</section>
+
 <!-- ================= CTA ================= -->
 <section class="cta">
   <div class="bgimg"><img data-par="-15" src="images/hero.jpg" alt="" loading="lazy"></div>
@@ -436,7 +609,7 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
       <div><h5>Work with us</h5><ul><li><a href="https://wa.me/917717567426?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20a%20role%20at%20Dr.%20Preksha%27s%20Aesthetics." target="_blank" rel="noopener" style="text-decoration:underline">Send your CV</a></li></ul></div>
     </div>
   </div>
-  <div class="legal"><span>© <span id="yr"></span> Dr. Preksha's Aesthetics &amp; Wellness</span><span>Results vary from person to person.</span></div>
+  <div class="legal"><span>© <span id="yr"></span> Dr. Preksha's Aesthetics &amp; Wellness · <a href="journal.html" style="text-decoration:underline">Skin Journal</a></span><span>Results vary from person to person. Content on this site is educational and not a substitute for medical advice.</span></div>
 </footer>
 
 <a class="wa" href="https://wa.me/917717567426" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -558,9 +731,15 @@ if (!window.gsap || reduce) {
   });
 
   // Gentle rise for headings and blocks
-  gsap.utils.toArray('.about h2, .about p, .facts, .process>h2, .reviews .hd, .visit .box, .ft').forEach(el => {
+  gsap.utils.toArray('.about h2, .about p, .facts, .process>h2, .reviews .hd, .visit .box, .ft, .sec-hd, .faq details').forEach(el => {
     gsap.from(el, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
+  // Cards rise in from depth
+  gsap.utils.toArray('.tr-grid, .j-grid, .m-row').forEach(grid => {
+    gsap.from(grid.querySelectorAll('.tr, .post, .myth'), { y: 90, rotationX: 18, transformPerspective: 1200, opacity: 0, stagger: .1, duration: 1.1, ease: 'power3.out',
+      scrollTrigger: { trigger: grid, start: 'top 85%' } });
+  });
+  gsap.from('.season', { scale: .94, borderRadius: 60, ease: 'none', scrollTrigger: { trigger: '.season', start: 'top bottom', end: 'top 30%', scrub: true } });
   gsap.from('.cta h2', { scale: .85, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top 85%', end: 'top 25%', scrub: true } });
 
   addEventListener('load', () => ScrollTrigger.refresh());
