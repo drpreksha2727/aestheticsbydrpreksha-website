@@ -130,33 +130,13 @@ img{display:block;max-width:100%}
 .btn:hover .arr{transform:translateX(3px)}
 
 /* ---------- HERO ---------- */
-/* ---------- OPENING SCENE (veil, WebGL) ---------- */
-.intro{position:relative;height:220vh;background:radial-gradient(120% 90% at 50% 40%,#e7d8c3 0%,#d5bf9f 55%,#c3a985 100%)}
-.i-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1400px}
-.i-word{position:absolute;top:50%;font-family:var(--serif);font-weight:400;font-size:clamp(4.5rem,15vw,17rem);line-height:.8;letter-spacing:-.03em;color:#f7efe4;white-space:nowrap;pointer-events:none;will-change:transform}
-.i-word.l{right:52%;transform:translateY(-62%)}
-.i-word.r{left:52%;transform:translateY(-8%);font-style:italic}
-.i-frame{position:relative;z-index:2;height:min(84vh,900px);aspect-ratio:736/1313;border-radius:999px 999px 28px 28px;overflow:hidden;box-shadow:0 60px 120px -40px rgba(70,45,20,.55),0 0 0 1px rgba(255,255,255,.25) inset;transform-style:preserve-3d;will-change:transform,clip-path}
-.i-frame img,.i-frame canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.i-frame canvas{opacity:0;transition:opacity .8s}
-.i-frame.gl canvas{opacity:1}
-.i-meta{position:absolute;z-index:3;left:30px;right:30px;bottom:28px;display:flex;justify-content:space-between;align-items:end;color:#3b2c1c;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
-.i-meta b{font-weight:500}
-.i-top{position:absolute;z-index:3;top:26px;left:30px;right:30px;display:flex;justify-content:space-between;align-items:center;color:#3b2c1c}
-.i-top .brand b{color:#2a1f14}
-.i-cue{display:flex;flex-direction:column;align-items:center;gap:8px}
-.i-cue i{width:1px;height:34px;background:linear-gradient(#3b2c1c,transparent);animation:drip 1.8s ease-in-out infinite;transform-origin:top}
+/* ---------- HERO VEIL FRAME (WebGL) ---------- */
+.face3d.veil{height:86%;bottom:4%;aspect-ratio:736/1313}
+.face3d .photo.veil{border-radius:999px 999px 26px 26px;overflow:hidden;box-shadow:0 50px 100px -40px rgba(70,45,20,.5),0 0 0 1px rgba(255,255,255,.4) inset;background:#d5bf9f}
+.face3d .photo.veil img,.face3d .photo.veil canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none}
+.face3d .photo.veil canvas{opacity:0;transition:opacity .8s}
+.face3d .photo.veil.gl canvas{opacity:1}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (max-width:700px){
-  .intro{height:170vh}
-  .i-frame{height:68vh}
-  .i-word{font-size:clamp(3.4rem,18vw,6rem)}
-  .i-word.l{right:auto;left:6vw;top:16%;transform:none}
-  .i-word.r{left:auto;right:6vw;top:auto;bottom:16%;transform:none}
-  .i-meta{left:18px;right:18px;font-size:.66rem}
-  .i-top{left:18px;right:18px}
-}
-
 .hero-wrap{height:100vh;min-height:640px;padding:14px;position:relative}
 .hero{position:relative;height:100%;background:var(--paper);border-radius:26px;overflow:hidden;will-change:transform,border-radius}
 nav.top{position:absolute;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px 30px}
@@ -559,19 +539,6 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
 <body>
 
 <!-- ================= HERO ================= -->
-<!-- ================= OPENING SCENE ================= -->
-<section class="intro" id="intro" aria-label="Welcome to Dr. Preksha's Aesthetics &amp; Wellness, Ahmedabad">
-  <div class="i-sticky">
-    <div class="i-top"><span class="brand"><span class="mark"></span><span><b>Dr. Preksha's</b><small style="color:#5b4630">Aesthetics &amp; Wellness</small></span></span><a href="#hero" class="btn" style="background:rgba(255,255,255,.55);backdrop-filter:blur(10px);color:#2a1f14">Enter <span class="arr">↓</span></a></div>
-    <span class="i-word l" aria-hidden="true">Aesthetics</span>
-    <span class="i-word r" aria-hidden="true">&amp; wellness</span>
-    <div class="i-frame" id="iFrame">
-      <img src="images/veil.jpg" alt="Woman with glowing skin wrapped in soft white silk — Dr. Preksha's Aesthetics &amp; Wellness, Ahmedabad" fetchpriority="high">
-      <canvas id="veilGL" aria-hidden="true"></canvas>
-    </div>
-    <div class="i-meta"><span><b>Skin · Hair · Laser · PMU</b></span><span class="i-cue"><i></i>Scroll</span><span><b>Ahmedabad</b></span></div>
-  </div>
-</section>
 
 <div class="hero-wrap">
   <header class="hero" id="hero">
@@ -598,8 +565,8 @@ footer.site{padding:70px 6vw 30px;font-size:.86rem;color:var(--soft)}
 
     <div class="stage" id="stage">
       <div class="glow"></div>
-      <div class="face3d" id="face">
-        <div class="photo"><video class="hv" id="heroVid" autoplay muted loop playsinline preload="auto" aria-label="Woman with clear, glowing skin"><source src="video/hero.mp4" type="video/mp4"></video></div>
+      <div class="face3d veil" id="face">
+        <div class="photo veil" id="iFrame"><img src="images/veil.jpg" alt="Woman with glowing skin wrapped in soft white silk — Dr. Preksha's Aesthetics &amp; Wellness, Ahmedabad" fetchpriority="high"><canvas id="veilGL" aria-hidden="true"></canvas></div>
         <div class="chip3d r"><b>Laser hair reduction</b>Full face &amp; body</div>
         <div class="chip3d l"><b>PRP &amp; GFC</b>Hair fall therapy</div>
       </div>
@@ -1210,42 +1177,10 @@ document.querySelectorAll('.film video, #ctaVid').forEach(v => vio.observe(v));
   function start() { size(); loop(); }
 })();
 
-// Opening scene choreography: reveal on load, 3D tilt with the mouse, open up on scroll
+// Hero veil: reveal on load
 if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  gsap.from('#iFrame', { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 28px 28px)', scale: 1.18, duration: 1.8, ease: 'expo.out', delay: .1 });
-  gsap.from('.i-word.l', { xPercent: -30, opacity: 0, duration: 1.6, ease: 'expo.out', delay: .35 });
-  gsap.from('.i-word.r', { xPercent: 30, opacity: 0, duration: 1.6, ease: 'expo.out', delay: .45 });
-  gsap.from('.i-top, .i-meta', { opacity: 0, y: 14, duration: 1, delay: 1, stagger: .1 });
-
-  if (matchMedia('(pointer:fine)').matches) {
-    const fx = gsap.quickTo('#iFrame', 'rotationY', { duration: .9, ease: 'power3' });
-    const fy = gsap.quickTo('#iFrame', 'rotationX', { duration: .9, ease: 'power3' });
-    const wl = gsap.quickTo('.i-word.l', 'x', { duration: 1.2, ease: 'power3' });
-    const wr = gsap.quickTo('.i-word.r', 'x', { duration: 1.2, ease: 'power3' });
-    document.getElementById('intro').addEventListener('pointermove', e => {
-      const nx = e.clientX / innerWidth - .5, ny = e.clientY / innerHeight - .5;
-      fx(nx * 16); fy(-ny * 12); wl(-nx * 60); wr(-nx * 90);
-    });
-  }
-
-  gsap.matchMedia().add('(min-width: 701px)', () => {
-    gsap.timeline({ scrollTrigger: { trigger: '#intro', start: 'top top', end: 'bottom bottom', scrub: true } })
-      .to('#iFrame', { height: '100vh', borderRadius: 0, ease: 'none' }, 0)
-      .to('#iFrame', { width: '100vw', ease: 'none' }, 0)
-      .to('.i-word.l', { xPercent: -60, opacity: 0, ease: 'none' }, 0)
-      .to('.i-word.r', { xPercent: 60, opacity: 0, ease: 'none' }, 0)
-      .to('.i-meta, .i-top', { opacity: 0, ease: 'none' }, 0)
-      .to('.i-sticky', { opacity: .15, ease: 'none' }, .7);
-  });
+  gsap.from('#iFrame', { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 26px 26px)', scale: 1.12, duration: 1.8, ease: 'expo.out', delay: .15 });
 }
-
-// Hero video fades in once its first frame is ready
-const heroVid = document.getElementById('heroVid');
-if (heroVid) {
-  const showVid = () => heroVid.classList.add('on');
-  if (heroVid.readyState >= 2) showVid(); else heroVid.addEventListener('loadeddata', showVid, { once: true });
-}
-
 // Hero: real-time 3D serum droplets (WebGL via three.js)
 (function () {
   const canvas = document.getElementById('drops');
