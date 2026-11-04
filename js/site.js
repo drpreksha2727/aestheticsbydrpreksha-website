@@ -45,7 +45,7 @@ const vio = new IntersectionObserver(es => es.forEach(e => {
   const v = e.target;
   if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
 }), { threshold: 0 });
-document.querySelectorAll('.film video, #ctaVid').forEach(v => vio.observe(v));
+document.querySelectorAll('.film video, #ctaVid, #iFrame video').forEach(v => vio.observe(v));
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!window.gsap || reduce) {
