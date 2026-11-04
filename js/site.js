@@ -45,7 +45,7 @@ const vio = new IntersectionObserver(es => es.forEach(e => {
   const v = e.target;
   if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
 }), { threshold: 0 });
-document.querySelectorAll('.film video, #ctaVid, #iFrame video').forEach(v => vio.observe(v));
+document.querySelectorAll('.film video, #ctaVid, #heroBg video').forEach(v => vio.observe(v));
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!window.gsap || reduce) {
@@ -71,22 +71,21 @@ if (!window.gsap || reduce) {
   // ---- Home hero ----
   if ($('.hero')) {
     gsap.from('.h-title .line>span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: .09, delay: .15 });
-    gsap.from('.face3d', { y: 80, opacity: 0, duration: 1.4, ease: 'power3.out' });
-    gsap.from('.chip3d', { opacity: 0, scale: .85, duration: .8, stagger: .12, delay: .7, ease: 'back.out(1.6)' });
+    gsap.from('.hero-bg video', { scale: 1.12, duration: 2.2, ease: 'expo.out' });
     gsap.from('.h-stats div, .trust, .h-title p, .h-title .btn', { opacity: 0, y: 16, duration: .8, stagger: .06, delay: .5 });
-    if ($('#iFrame')) gsap.from('#iFrame', { opacity: 0, scale: 1.08, y: 30, duration: 1.8, ease: 'expo.out', delay: .15 });
 
-    const face = document.getElementById('face');
-    if (face && fine) {
-      const rx = gsap.quickTo(face, 'rotationX', { duration: .9, ease: 'power3' });
-      const ry = gsap.quickTo(face, 'rotationY', { duration: .9, ease: 'power3' });
+    // The video drifts gently against the pointer for depth
+    const bg = document.querySelector('.hero-bg video');
+    if (bg && fine) {
+      const bx = gsap.quickTo(bg, 'x', { duration: 1.2, ease: 'power3' });
+      const by = gsap.quickTo(bg, 'y', { duration: 1.2, ease: 'power3' });
       const hero = document.getElementById('hero');
       hero.addEventListener('pointermove', e => {
         const r = e.currentTarget.getBoundingClientRect();
-        ry(((e.clientX - r.left) / r.width - .5) * 14);
-        rx(-((e.clientY - r.top) / r.height - .5) * 10);
+        bx(-((e.clientX - r.left) / r.width - .5) * 24);
+        by(-((e.clientY - r.top) / r.height - .5) * 16);
       });
-      hero.addEventListener('pointerleave', () => { rx(0); ry(0); });
+      hero.addEventListener('pointerleave', () => { bx(0); by(0); });
     }
   }
 
@@ -100,7 +99,7 @@ if (!window.gsap || reduce) {
     if ($('.hero-wrap')) {
       gsap.timeline({ scrollTrigger: { trigger: '.hero-wrap', start: 'top top', end: 'bottom top', scrub: true } })
         .to('#hero', { scale: .9, rotationX: 8, borderRadius: 40, transformPerspective: 1400, transformOrigin: 'center top', ease: 'none' }, 0)
-        .to('.face3d', { yPercent: 12, scale: 1.06, ease: 'none' }, 0)
+        .to('.hero-bg', { yPercent: 10, scale: 1.08, ease: 'none' }, 0)
         .to('.h-title', { y: -60, opacity: .2, ease: 'none' }, 0);
     }
 
