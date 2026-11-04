@@ -22,7 +22,13 @@
 - Prices depend on treatment, area and number of sessions; a quote is given after consultation.
 
 ## Pages
-- [Home](https://aestheticsbydrpreksha.com/): treatments, before/after results, wedding-season skin timeline, FAQ, location and hours
+- [Home](https://aestheticsbydrpreksha.com/): overview of the clinic, patient reviews and latest articles
+- [Treatments](https://aestheticsbydrpreksha.com/treatments.html): every treatment offered, for skin, laser, hair and permanent makeup
+- [Results](https://aestheticsbydrpreksha.com/results.html): before/after photos of the clinic's own patients and Google reviews
+- [The Clinic](https://aestheticsbydrpreksha.com/about.html): approach, how a visit works, aesthetic-care trends in India
+- [Wedding Season](https://aestheticsbydrpreksha.com/wedding.html): bridal and groom skin timeline (6 months to 2 weeks before)
+- [FAQ](https://aestheticsbydrpreksha.com/faq.html): safety, sessions, downtime, cost, men, pregnancy, aftercare, location and timings
+- [Contact](https://aestheticsbydrpreksha.com/contact.html): address, hours, map and appointment request form
 - [Skin Journal](https://aestheticsbydrpreksha.com/journal.html): research-backed articles for Indian skin
 
 ## Articles (each opens with a short "Quick answer")
